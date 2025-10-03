@@ -6,7 +6,7 @@
 # ║                                                              ║
 # ║    A Professional, Interactive, and Comprehensive Setup      ║
 # ║                                                              ║
-# ║              Credit: Gemini & https://asmat.dev              ║
+# ║              Credit: Asmat (https://asmat.dev)               ║
 # ╚══════════════════════════════════════════════════════════════╝
 
 # --- CONFIGURATION & STYLING ---
