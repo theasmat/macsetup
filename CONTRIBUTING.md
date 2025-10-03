@@ -97,7 +97,7 @@ for app in "${new_apps[@]}"; do
         else
             print_warning "Failed to install ${app} after multiple attempts."
         fi
-    else 
+    else
         print_skip "Skipped ${app}."
     fi
 done
@@ -187,13 +187,13 @@ main() {
 # Use consistent function naming
 install_category_name() {
     # Function description
-    
+
     # Check prerequisites
     if ! command -v brew &>/dev/null; then
         print_warning "Homebrew not found, skipping."
         return
     fi
-    
+
     # Main logic with error handling
     if ask_yes_no "Install category?"; then
         # Installation logic
@@ -246,6 +246,9 @@ local apps=( "app1" "app2" "app3" )
 2. **Test individual sections** by modifying the main() function
 3. **Test error scenarios** (no internet, canceled installations)
 4. **Verify all paths work** for different macOS versions
+5. **Test both installation URLs**:
+   - Primary: `curl -fsSL https://macsetup.asmat.dev/mac-dev-setup.sh | bash`
+   - Backup: `curl -fsSL https://macsetup.netlify.app/mac-dev-setup.sh | bash`
 
 ### **Website Testing**
 1. **Test locally** by opening index.html in browsers
@@ -344,7 +347,9 @@ Contributors will be recognized in:
 ### **Contact**
 - **Maintainer**: [@theasmat](https://github.com/theasmat)
 - **Website**: [asmat.dev](https://asmat.dev)
-- **Project**: [macsetup.asmat.dev](https://macsetup.asmat.dev)
+- **Project**:
+  - Primary: [macsetup.asmat.dev](https://macsetup.asmat.dev)
+  - Backup: [macsetup.netlify.app](https://macsetup.netlify.app)
 
 ## 📜 Code of Conduct
 

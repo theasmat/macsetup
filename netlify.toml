@@ -1,9 +1,12 @@
 # Netlify configuration for macsetup.asmat.dev
+
 [build]
   publish = "."
 
 [build.environment]
-  NODE_VERSION = "18"[[headers]]
+  NODE_VERSION = "18"
+
+[[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"

@@ -36,3 +36,8 @@ Desktop.ini
 *.project
 *.settings/
 *.metadata/
+# Local Netlify folder
+.netlify
+
+
+#copilot ignore

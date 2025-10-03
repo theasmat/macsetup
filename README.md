@@ -3,7 +3,11 @@
 This project provides a professional, interactive setup script for macOS developers with a complete web interface for easy access and distribution.
 
 ## 🌐 Live Demo
-Visit the live version at: [https://macsetup.asmat.dev](https://macsetup.asmat.dev)
+Visit the live version at:
+- **Primary**: [https://macsetup.asmat.dev](https://macsetup.asmat.dev)
+- **Backup**: [https://macsetup.netlify.app](https://macsetup.netlify.app)
+
+> 💡 **Domain Redundancy**: We maintain two domains to ensure maximum availability. If the primary domain is ever unavailable, the Netlify backup domain will always work.
 
 ## 📁 Project Structure
 
@@ -63,7 +67,11 @@ Before deploying, update the following in `index.html`:
 <!-- Line 28: Install command -->
 3. **Users can install with**:
    ```bash
+   # Primary domain
    curl -fsSL https://macsetup.asmat.dev/mac-dev-setup.sh | bash
+
+   # Backup domain (if primary is unavailable)
+   curl -fsSL https://macsetup.netlify.app/mac-dev-setup.sh | bash
    ```
 
 <!-- Line 121: Download link -->

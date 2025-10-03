@@ -1,8 +1,11 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Primary domain sitemap
 Sitemap: https://macsetup.asmat.dev/sitemap.xml
+
+# Backup domain sitemap (Netlify)
+Sitemap: https://macsetup.netlify.app/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

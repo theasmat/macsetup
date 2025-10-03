@@ -85,10 +85,18 @@
                 <div class="cta-section">
                     <div class="install-command">
                         <div class="command-header">
-                            <span class="command-label">Quick Install</span>
+                            <span class="command-label">Quick Install (Primary)</span>
                             <button class="copy-btn" onclick="copyCommand()" id="copyBtn">📋 Copy</button>
                         </div>
                         <code id="installCommand">curl -fsSL https://macsetup.asmat.dev/mac-dev-setup.sh | bash</code>
+                    </div>
+
+                    <div class="install-command backup-command">
+                        <div class="command-header">
+                            <span class="command-label">Backup Install (Netlify)</span>
+                            <button class="copy-btn" onclick="copyBackupCommand()" id="copyBackupBtn">📋 Copy</button>
+                        </div>
+                        <code id="backupInstallCommand">curl -fsSL https://macsetup.netlify.app/mac-dev-setup.sh | bash</code>
                     </div>
 
                     <div class="cta-buttons">
@@ -156,21 +164,31 @@
 
             <div class="install-methods">
                 <div class="method">
-                    <h3>🚀 Quick Install (Recommended)</h3>
-                    <p>Run the script directly from the web:</p>
+                    <h3>🚀 Quick Install (Primary Domain)</h3>
+                    <p>Run the script directly from our main domain:</p>
                     <div class="code-block">
                         <code>curl -fsSL https://macsetup.asmat.dev/mac-dev-setup.sh | bash</code>
                         <button class="copy-btn" onclick="copyToClipboard('curl -fsSL https://macsetup.asmat.dev/mac-dev-setup.sh | bash')">📋</button>
                     </div>
                 </div>
 
+                <div class="method backup-method">
+                    <h3>� Backup Install (Netlify)</h3>
+                    <p>Alternative URL if the primary domain is unavailable:</p>
+                    <div class="code-block">
+                        <code>curl -fsSL https://macsetup.netlify.app/mac-dev-setup.sh | bash</code>
+                        <button class="copy-btn" onclick="copyToClipboard('curl -fsSL https://macsetup.netlify.app/mac-dev-setup.sh | bash')">📋</button>
+                    </div>
+                </div>
+
                 <div class="method">
-                    <h3>📥 Download & Run</h3>
+                    <h3>�📥 Download & Run</h3>
                     <p>Download and inspect the script before running:</p>
                     <div class="code-block">
                         <code>curl -O https://macsetup.asmat.dev/mac-dev-setup.sh<br>chmod +x mac-dev-setup.sh<br>./mac-dev-setup.sh</code>
                         <button class="copy-btn" onclick="copyToClipboard('curl -O https://macsetup.asmat.dev/mac-dev-setup.sh\nchmod +x mac-dev-setup.sh\n./mac-dev-setup.sh')">📋</button>
                     </div>
+                    <p class="backup-note">💡 <strong>Backup:</strong> Replace <code>macsetup.asmat.dev</code> with <code>macsetup.netlify.app</code> if needed</p>
                 </div>
 
                 <div class="method">

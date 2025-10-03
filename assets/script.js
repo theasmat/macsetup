@@ -73,7 +73,20 @@ function copyCommand() {
   }, 2000);
 }
 
-// Smooth scrolling for navigation links
+// Backup command copy function
+function copyBackupCommand() {
+  const command = document.getElementById("backupInstallCommand").textContent;
+  copyToClipboard(command);
+
+  // Update button text temporarily
+  const copyBtn = document.getElementById("copyBackupBtn");
+  const originalText = copyBtn.textContent;
+  copyBtn.textContent = "✅ Copied!";
+
+  setTimeout(() => {
+    copyBtn.textContent = originalText;
+  }, 2000);
+} // Smooth scrolling for navigation links
 document.addEventListener("DOMContentLoaded", function () {
   // Handle navigation clicks
   const navLinks = document.querySelectorAll('.nav a, a[href^="#"]');
@@ -318,5 +331,6 @@ function addLoadingState(button) {
 
 // Export functions for global use
 window.copyCommand = copyCommand;
+window.copyBackupCommand = copyBackupCommand;
 window.copyToClipboard = copyToClipboard;
 window.showToast = showToast;
