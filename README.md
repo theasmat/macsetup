@@ -211,6 +211,35 @@ The site is fully responsive and includes:
 
 This project is open source. Include your preferred license.
 
+## 🤝 Contributing
+
+We welcome contributions from developers of all skill levels! 🎉
+
+### 🚀 Quick Start
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+### 💡 Ways to Contribute
+- **🛠️ Add new applications**: Expand our tool collection
+- **🐛 Fix bugs**: Help improve reliability
+- **📝 Improve documentation**: Make it clearer for everyone
+- **🎨 Enhance the website**: Better user experience
+- **💬 Share feedback**: Tell us what you think
+
+### 📋 Contribution Guidelines
+- Read our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
+- Use our issue templates for bug reports and feature requests
+- Follow the existing code style and patterns
+- Test your changes on macOS before submitting
+
+### 🏆 Recognition
+Contributors are recognized in our Hall of Fame and project documentation!
+
+---
+
 ## 🆘 Support
 
 - 🐛 [Report Issues](https://github.com/theasmat/macsetup/issues)

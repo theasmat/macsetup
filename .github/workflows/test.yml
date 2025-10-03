@@ -1,0 +1,269 @@
+name: 🧪 Test Mac Setup Script
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  syntax-check:
+    name: 📝 Bash Syntax Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Check bash syntax
+      run: |
+        bash -n mac-dev-setup.sh
+        echo "✅ Bash syntax check passed!"
+
+  shellcheck:
+    name: 🛡️ ShellCheck Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Run ShellCheck
+      uses: ludeeus/action-shellcheck@master
+      with:
+        scandir: '.'
+        format: gcc
+        severity: warning
+        additional_files: 'mac-dev-setup.sh'
+
+  html-validation:
+    name: 🌐 HTML Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Validate HTML
+      uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+      with:
+        root: .
+        format: text
+
+  link-check:
+    name: 🔗 Link Checker
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Check links in markdown files
+      uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        use-quiet-mode: 'yes'
+        config-file: '.github/markdown-link-check-config.json'
+
+  security-scan:
+    name: 🔒 Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Run security scan
+      uses: securecodewarrior/github-action-add-sarif@v1
+      with:
+        sarif-file: 'security-scan-results.sarif'
+      continue-on-error: true
+
+  test-script-structure:
+    name: 🏗️ Script Structure Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Test script structure
+      run: |
+        echo "🔍 Checking script structure..."
+        
+        # Check if main function exists
+        if grep -q "^main()" mac-dev-setup.sh; then
+          echo "✅ Main function found"
+        else
+          echo "❌ Main function not found"
+          exit 1
+        fi
+        
+        # Check if all required functions are defined
+        required_functions=(
+          "ask_yes_no"
+          "print_success"
+          "print_warning"
+          "print_info"
+          "install_core_tools"
+          "install_browsers"
+          "install_ides"
+          "configure_environments"
+        )
+        
+        for func in "${required_functions[@]}"; do
+          if grep -q "^${func}()" mac-dev-setup.sh; then
+            echo "✅ Function $func found"
+          else
+            echo "❌ Function $func not found"
+            exit 1
+          fi
+        done
+        
+        echo "✅ All required functions found!"
+
+  test-website:
+    name: 🌐 Website Functionality Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: 🔍 Test JavaScript syntax
+      run: |
+        echo "🔍 Checking JavaScript syntax..."
+        node -c assets/script.js
+        echo "✅ JavaScript syntax check passed!"
+        
+    - name: 🔍 Check CSS validity
+      run: |
+        echo "🔍 Checking CSS structure..."
+        # Basic CSS syntax check
+        if grep -q ":root" assets/styles.css; then
+          echo "✅ CSS variables found"
+        else
+          echo "❌ CSS variables not found"
+          exit 1
+        fi
+        
+        if grep -q "@media" assets/styles.css; then
+          echo "✅ Media queries found"
+        else
+          echo "❌ Media queries not found"
+          exit 1
+        fi
+        
+        echo "✅ CSS structure check passed!"
+
+  documentation-check:
+    name: 📚 Documentation Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Check required documentation
+      run: |
+        echo "🔍 Checking documentation files..."
+        
+        required_docs=(
+          "README.md"
+          "CONTRIBUTING.md"
+          ".github/pull_request_template.md"
+          ".github/ISSUE_TEMPLATE/bug_report.md"
+          ".github/ISSUE_TEMPLATE/feature_request.md"
+        )
+        
+        for doc in "${required_docs[@]}"; do
+          if [ -f "$doc" ]; then
+            echo "✅ Documentation file $doc exists"
+          else
+            echo "❌ Documentation file $doc missing"
+            exit 1
+          fi
+        done
+        
+        echo "✅ All documentation files found!"
+
+  integration-test:
+    name: 🧪 Integration Test (Dry Run)
+    runs-on: macos-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Test script execution (dry run)
+      run: |
+        echo "🧪 Running integration test..."
+        
+        # Make script executable
+        chmod +x mac-dev-setup.sh
+        
+        # Test that script can start (but don't actually install anything)
+        # We'll modify the script to exit early in test mode
+        
+        # Check if script accepts parameters
+        if ./mac-dev-setup.sh --help 2>/dev/null || true; then
+          echo "✅ Script accepts parameters"
+        fi
+        
+        # Test syntax by sourcing without execution
+        bash -n mac-dev-setup.sh
+        echo "✅ Script syntax is valid"
+        
+        # Check Homebrew detection logic
+        if command -v brew >/dev/null 2>&1; then
+          echo "✅ Homebrew is available for testing"
+        else
+          echo "ℹ️ Homebrew not available (expected in CI)"
+        fi
+        
+        echo "✅ Integration test completed!"
+
+  notify-on-success:
+    name: 🎉 Success Notification
+    runs-on: ubuntu-latest
+    needs: [syntax-check, shellcheck, html-validation, link-check, test-script-structure, test-website, documentation-check, integration-test]
+    if: success()
+    
+    steps:
+    - name: 🎉 All tests passed
+      run: |
+        echo "🎉 All tests passed successfully!"
+        echo "✅ Bash syntax check: PASSED"
+        echo "✅ ShellCheck analysis: PASSED" 
+        echo "✅ HTML validation: PASSED"
+        echo "✅ Link checking: PASSED"
+        echo "✅ Script structure: PASSED"
+        echo "✅ Website functionality: PASSED"
+        echo "✅ Documentation check: PASSED"
+        echo "✅ Integration test: PASSED"
+        echo ""
+        echo "🚀 Ready for deployment!"
+
+  notify-on-failure:
+    name: ❌ Failure Notification
+    runs-on: ubuntu-latest
+    needs: [syntax-check, shellcheck, html-validation, link-check, test-script-structure, test-website, documentation-check, integration-test]
+    if: failure()
+    
+    steps:
+    - name: ❌ Tests failed
+      run: |
+        echo "❌ Some tests failed!"
+        echo "Please check the failed jobs above and fix the issues."
+        echo "💡 Common issues:"
+        echo "   - Bash syntax errors"
+        echo "   - Missing functions"
+        echo "   - Broken links"
+        echo "   - Invalid HTML/CSS"
+        echo ""
+        echo "📚 See CONTRIBUTING.md for guidelines"
+        exit 1

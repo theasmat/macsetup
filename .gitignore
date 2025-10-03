@@ -1,0 +1,38 @@
+# VSCode settings and workspace files
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs (IntelliJ, PyCharm, WebStorm, etc.)
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Mac system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Vim
+*.swp
+*.swo
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# VS Code extensions
+.vscode-test/
+.history/
+
+# Other IDEs
+*.vscode/
+*.project
+*.settings/
+*.metadata/
