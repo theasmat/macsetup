@@ -1,0 +1,31 @@
+{
+  "projectName": "Mac Developer Setup",
+  "projectOwner": "theasmat",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "contributorsPerLine": 7,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "theasmat",
+      "name": "theasmat",
+      "avatar_url": "https://avatars.githubusercontent.com/theasmat?v=4",
+      "profile": "https://github.com/theasmat",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsSortAlphabetically": false,
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
+  "contributorTemplate": "<%= contributor.name %>",
+  "linkToUsage": false,
+  "skipCi": true
+}

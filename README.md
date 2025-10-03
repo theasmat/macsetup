@@ -1,6 +1,12 @@
-🚀 Mac Developer Setup
+# 🚀 Mac Developer Setup
 
-A professional, interactive, and comprehensive setup script for macOS developers. Install all essential development tools, IDEs, databases, and programming environments with one command.
+
+A professional, interactive, and comprehensive setup script for macOS developers. Install all essential development tools, IDEs, databases, and progra### 📊 Live Contributors Stats
+
+![Contributors](https://img.shields.io/badge/contributors-1-brightgreen?style=for-the-badge&logo=github)
+![Commits](https://img.shields.io/github/commit-activity/t/theasmat/macsetup?style=for-the-badge&logo=git)
+![Issues Closed](https://img.shields.io/github/issues-closed/theasmat/macsetup?style=for-the-badge&logo=github)
+![PRs Merged](https://img.shields.io/github/issues-pr-closed/theasmat/macsetup?style=for-the-badge&logo=github)environments with one command.
 
 ## ✨ What This Does
 
@@ -149,44 +155,38 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
+---
+
 **🌟 Star this repo if it helped you set up your Mac development environment!**
 
+## Contributors
 
-###
+Thanks goes to these wonderful people who have contributed to making Mac setup better for everyone:
 
-## 🤝 Contributing
+[ ![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
-We welcome contributions from developers of all skill levels! 🎉
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+<tr>
+<td align="center"><a href="https://github.com/theasmat"><img src="https://avatars.githubusercontent.com/theasmat?v=4?s=100" width="100px;" alt=""/><br /><sub><b>theasmat</b></sub></a><br /><a href="https://github.com/theasmat/macsetup/commits?author=theasmat" title="Code">💻</a> <a href="https://github.com/theasmat/macsetup/commits?author=theasmat" title="Documentation">📖</a> <a href="#ideas-theasmat" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-theasmat" title="Maintenance">🚧</a></td>
+</tr>
+</table>
 
-### 🚀 Quick Start
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
+### � Live Contributors Stats
 
+ ![Contributors](https://img.shields.io/github/contributors/theasmat/macsetup?style=for-the-badge&logo=github)
+ ![Commits](https://img.shields.io/github/commit-activity/t/theasmat/macsetup?style=for-the-badge&logo=git)
+ ![Issues Closed](https://img.shields.io/github/issues-closed/theasmat/macsetup?style=for-the-badge&logo=github)
+ ![PRs Merged](https://img.shields.io/github/issues-pr-closed/theasmat/macsetup?style=for-the-badge&logo=github)
 
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-### 💡 Ways to Contribute
-
-* **🛠️ Add new applications**: Expand our tool collection
-* **🐛 Fix bugs**: Help improve reliability
-* **📝 Improve documentation**: Make it clearer for everyone
-* **🎨 Enhance the website**: Better user experience
-* **💬 Share feedback**: Tell us what you think
-
-### 📋 Contribution Guidelines
-
-* Read our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
-* Use our issue templates for bug reports and feature requests
-* Follow the existing code style and patterns
-* Test your changes on macOS before submitting
-
-### 🏆 Recognition
-
-Contributors are recognized in our Hall of Fame and project documentation!
+**🤝 Want to contribute?** Check out our [Contributors Hall of Fame](CONTRIBUTORS.md) and [Contributing Guidelines](CONTRIBUTING.md)!
 
 
