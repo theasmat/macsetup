@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Mac Developer Setup Script - Automated installation of development tools, IDEs, browsers, databases, and programming environments for macOS developers.">
+    <meta name="keywords" content="Mac setup, macOS developer tools, Homebrew, Node.js, Python, Java, Redis, PostgreSQL, VS Code, development environment, automation script">
+    <meta name="author" content="Asmat - https://asmat.dev">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mac Developer Setup Script - Complete Development Environment">
+    <meta property="og:description" content="Professional, interactive setup script for macOS developers. Install all essential development tools, IDEs, databases, and programming environments with one command.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://macsetup.asmat.dev">
+    <meta property="og:image" content="https://macsetup.asmat.dev/assets/og-image.png">
+    <meta property="og:site_name" content="Mac Developer Setup">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mac Developer Setup Script - Complete Development Environment">
+    <meta name="twitter:description" content="Professional, interactive setup script for macOS developers. Install all essential development tools with one command.">
+    <meta name="twitter:image" content="https://macsetup.asmat.dev/assets/twitter-card.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+
+    <title>Mac Developer Setup Script - Complete Development Environment | Asmat.dev</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/styles.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Mac Developer Setup Script",
+        "description": "Professional, interactive setup script for macOS developers",
+        "author": {
+            "@type": "Person",
+            "name": "Asmat",
+            "url": "https://asmat.dev"
+        },
+        "operatingSystem": "macOS",
+        "applicationCategory": "DeveloperApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>🚀 Mac Developer Setup</h1>
+                    <p>Professional Development Environment</p>
+                </div>
+                <nav class="nav">
+                    <a href="#features">Features</a>
+                    <a href="#installation">Installation</a>
+                    <a href="#tools">Tools</a>
+                    <a href="#support">Support</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Complete Mac Developer Setup in One Command</h2>
+                <p class="hero-subtitle">Professional, interactive, and comprehensive setup script for macOS developers. Install all essential development tools, IDEs, databases, and programming environments with intelligent error handling and categorized installations.</p>
+
+                <div class="cta-section">
+                    <div class="install-command">
+                        <div class="command-header">
+                            <span class="command-label">Quick Install</span>
+                            <button class="copy-btn" onclick="copyCommand()" id="copyBtn">📋 Copy</button>
+                        </div>
+                        <code id="installCommand">curl -fsSL https://macsetup.asmat.dev/mac-dev-setup.sh | bash</code>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <a href="./mac-dev-setup.sh" class="btn btn-primary" download>📥 Download Script</a>
+                        <a href="#installation" class="btn btn-secondary">📖 View Instructions</a>
+                    </div>
+                </div>
+
+                <div class="version-info">
+                    <span class="version">Version 5.0 (Refined)</span>
+                    <span class="compatibility">Compatible with macOS Big Sur+</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose This Setup Script?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Interactive & Customizable</h3>
+                    <p>Choose exactly what you want to install. Skip entire sections or individual tools based on your needs.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Robust Error Handling</h3>
+                    <p>Intelligent retry mechanisms, download verification, and graceful fallbacks ensure reliable installations.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Categorized Installations</h3>
+                    <p>Organized into logical sections: Browsers, IDEs, Development Tools, Databases, and Programming Environments.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Performance Optimized</h3>
+                    <p>Efficient installations with progress indicators and parallel processing where possible.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Professional Configuration</h3>
+                    <p>Includes pre-configured settings for VS Code, Git, SSH, and development environments.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Regular Updates</h3>
+                    <p>Continuously updated with the latest versions and best practices for macOS development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="installation">
+        <div class="container">
+            <h2 class="section-title">Installation Methods</h2>
+
+            <div class="install-methods">
+                <div class="method">
+                    <h3>🚀 Quick Install (Recommended)</h3>
+                    <p>Run the script directly from the web:</p>
+                    <div class="code-block">
+                        <code>curl -fsSL https://macsetup.asmat.dev/mac-dev-setup.sh | bash</code>
+                        <button class="copy-btn" onclick="copyToClipboard('curl -fsSL https://macsetup.asmat.dev/mac-dev-setup.sh | bash')">📋</button>
+                    </div>
+                </div>
+
+                <div class="method">
+                    <h3>📥 Download & Run</h3>
+                    <p>Download and inspect the script before running:</p>
+                    <div class="code-block">
+                        <code>curl -O https://macsetup.asmat.dev/mac-dev-setup.sh<br>chmod +x mac-dev-setup.sh<br>./mac-dev-setup.sh</code>
+                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://macsetup.asmat.dev/mac-dev-setup.sh\nchmod +x mac-dev-setup.sh\n./mac-dev-setup.sh')">📋</button>
+                    </div>
+                </div>
+
+                <div class="method">
+                    <h3>🔗 Git Clone</h3>
+                    <p>Clone the repository for the latest version:</p>
+                    <div class="code-block">
+                        <code>git clone https://github.com/theasmat/macsetup.git<br>cd macsetup<br>./mac-dev-setup.sh</code>
+                        <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/theasmat/macsetup.git\ncd macsetup\n./mac-dev-setup.sh')">📋</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="tools">
+        <div class="container">
+            <h2 class="section-title">What Gets Installed</h2>
+
+            <div class="tools-categories">
+                <div class="category">
+                    <h3>🌐 Web Browsers</h3>
+                    <ul>
+                        <li>Google Chrome</li>
+                        <li>Mozilla Firefox</li>
+                        <li>Brave Browser</li>
+                        <li>Tor Browser</li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <h3>💻 IDEs & Editors</h3>
+                    <ul>
+                        <li>Visual Studio Code</li>
+                        <li>iTerm2</li>
+                        <li>Warp Terminal</li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <h3>🛠️ Development Tools</h3>
+                    <ul>
+                        <li>Docker</li>
+                        <li>Postman</li>
+                        <li>Sequel Ace</li>
+                        <li>ngrok</li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <h3>🗄️ Databases</h3>
+                    <ul>
+                        <li>Redis</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <h3>🔧 Utilities</h3>
+                    <ul>
+                        <li>Raycast</li>
+                        <li>Bitwarden</li>
+                        <li>Rectangle</li>
+                        <li>Maccy</li>
+                        <li>ImageOptim</li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <h3>🌳 Programming Environments</h3>
+                    <ul>
+                        <li>Node.js (via NVM)</li>
+                        <li>Python 3.13</li>
+                        <li>Java 25 JDK</li>
+                        <li>Git Configuration</li>
+                        <li>SSH Key Setup</li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <h3>💬 Communication</h3>
+                    <ul>
+                        <li>Slack</li>
+                        <li>Discord</li>
+                        <li>Signal</li>
+                        <li>Zoom</li>
+                    </ul>
+                </div>
+
+                <div class="category">
+                    <h3>🎥 Media & Creative</h3>
+                    <ul>
+                        <li>VLC</li>
+                        <li>OBS Studio</li>
+                        <li>Figma</li>
+                        <li>Calibre</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="support">
+        <div class="container">
+            <h2 class="section-title">Support & Contributing</h2>
+
+            <div class="support-grid">
+                <div class="support-card">
+                    <h3>🐛 Found a Bug?</h3>
+                    <p>Report issues or suggest improvements on our GitHub repository.</p>
+                    <a href="https://github.com/theasmat/macsetup/issues" class="btn btn-outline">Report Issue</a>
+                </div>
+
+                <div class="support-card">
+                    <h3>🤝 Want to Contribute?</h3>
+                    <p>We welcome contributions! Check out our contributing guidelines.</p>
+                    <a href="https://github.com/theasmat/macsetup/blob/main/CONTRIBUTING.md" class="btn btn-outline">Contribute</a>
+                </div>
+
+                <div class="support-card">
+                    <h3>⭐ Like This Project?</h3>
+                    <p>Give us a star on GitHub and share it with other developers!</p>
+                    <a href="https://github.com/theasmat/macsetup" class="btn btn-outline">Star on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2025 Mac Developer Setup. Created by <a href="https://asmat.dev" target="_blank">Asmat</a></p>
+                </div>
+                <div class="footer-right">
+                    <a href="https://github.com/theasmat/macsetup">GitHub</a>
+                    <a href="https://asmat.dev">Website</a>
+                    <a href="#installation">Documentation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <span id="toastMessage">Copied to clipboard!</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./assets/script.js"></script>
+</body>
+</html>

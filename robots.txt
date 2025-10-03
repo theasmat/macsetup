@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://macsetup.asmat.dev/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow specific files
+Disallow: /assets/
+Disallow: /*.sh$
+
+# Allow important files
+Allow: /mac-dev-setup.sh
+Allow: /index.html
