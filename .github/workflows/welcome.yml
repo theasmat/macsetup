@@ -1,0 +1,93 @@
+name: Welcome New Contributors
+
+on:
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  welcome:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if first-time contributor
+        id: check
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: pullRequests } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              creator: context.payload.pull_request.user.login,
+              state: 'closed'
+            });
+
+            const mergedPRs = pullRequests.filter(pr => pr.merged_at);
+            const isFirstTime = mergedPRs.length === 1;
+
+            return {
+              isFirstTime,
+              contributor: context.payload.pull_request.user.login,
+              prNumber: context.payload.pull_request.number,
+              prTitle: context.payload.pull_request.title
+            };
+
+      - name: Welcome first-time contributor
+        if: fromJSON(steps.check.outputs.result).isFirstTime
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const result = ${{ steps.check.outputs.result }};
+
+            const welcomeMessage = `
+            🎉 **Welcome to the Mac Developer Setup family, @${result.contributor}!**
+
+            Thank you for your first contribution! Your PR "${result.prTitle}" has been merged and you're now part of our amazing community of developers making Mac setup better for everyone! 🚀
+
+            ### 🏆 You've been added to our Hall of Fame!
+
+            Your contribution will be automatically recognized in:
+            - ✅ [Contributors Hall of Fame](CONTRIBUTORS.md)
+            - ✅ README.md contributors section
+            - ✅ Project documentation
+
+            ### 🌟 What's Next?
+
+            - Join our [discussions](https://github.com/${context.repo.owner}/${context.repo.repo}/discussions)
+            - Help us review other [pull requests](https://github.com/${context.repo.owner}/${context.repo.repo}/pulls)
+            - Share the project with other developers!
+
+            Thanks again for making the Mac developer experience better! 🙌
+            `;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: result.prNumber,
+              body: welcomeMessage
+            });
+
+      - name: Thank returning contributor
+        if: ${{ !fromJSON(steps.check.outputs.result).isFirstTime }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const result = ${{ steps.check.outputs.result }};
+
+            const thankYouMessage = `
+            🙌 **Thank you @${result.contributor} for another great contribution!**
+
+            Your PR "${result.prTitle}" has been merged! We really appreciate your continued support in making Mac Developer Setup even better! 🚀
+
+            🏆 Your contributions continue to be recognized in our [Hall of Fame](CONTRIBUTORS.md)!
+            `;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: result.prNumber,
+              body: thankYouMessage
+            });

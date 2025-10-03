@@ -1,109 +1,185 @@
-# Mac Developer Setup Script - Web Hosting
+# 🚀 Mac Developer Setup
 
-This project provides a professional, interactive setup script for macOS developers with a complete web interface for easy access and distribution.
+A professional, interactive, and comprehensive setup script for macOS developers. Install all essential development tools, IDEs, databases, and programming environments with one command.
 
-## 🌐 Live Demo
-Visit the live version at:
-- **Primary**: [https://macsetup.asmat.dev](https://macsetup.asmat.dev)
-- **Backup**: [https://macsetup.netlify.app](https://macsetup.netlify.app)
+## ✨ What This Does
 
-> 💡 **Domain Redundancy**: We maintain two domains to ensure maximum availability. If the primary domain is ever unavailable, the Netlify backup domain will always work.
+Transform your Mac into a fully-configured development machine with:
 
-## 📁 Project Structure
+* **🌐 Web Browsers**: Chrome, Firefox, Brave, Tor
+* **💻 IDEs & Editors**: VS Code, iTerm2, Warp Terminal
+* **🛠️ Development Tools**: Docker, Postman, ngrok, Sequel Ace
+* **🗄️ Databases**: Redis, PostgreSQL
+* **🌳 Programming Environments**: Node.js, Python, Java
+* **🔧 Utilities**: Raycast, Rectangle, Bitwarden, and more
+* **💬 Communication**: Slack, Discord, Zoom
+* **🎥 Media & Creative**: VLC, OBS, Figma
 
+## 🎯 Key Features
+
+* **🎯 Interactive**: Choose exactly what you want to install
+* **🛡️ Robust**: Intelligent error handling and retry mechanisms
+* **� Organized**: Categorized installations for better control
+* **⚡ Fast**: Optimized installation process with progress indicators
+* **🔧 Pre-configured**: Includes settings for VS Code, Git, SSH
+
+## 🚀 Quick Start
+
+### One-Command Installation
+
+**Primary:**
+
+```bash
+curl -fsSL https://macsetup.asmat.dev/mac-dev-setup.sh | bash
 ```
-mac-dev-setup/
-├── index.html              # SEO-optimized landing page
-├── mac-dev-setup.sh        # Main setup script
-├── README.md               # This file
-├── assets/
-│   ├── styles.css          # CSS styling
-│   ├── script.js           # JavaScript functionality
-│   └── favicon.ico         # Site favicon (add this)
-└── docs/                   # Additional documentation (optional)
+
+**Backup (if primary is unavailable):**
+
+```bash
+curl -fsSL https://macsetup.netlify.app/mac-dev-setup.sh | bash
 ```
 
-## 🚀 Quick Deploy
+### Alternative Installation Methods
 
-### Option 1: GitHub Pages
-1. Push this repository to GitHub
-2. Go to Settings → Pages
-3. Select source: Deploy from a branch
-4. Select branch: main
-5. Your site will be available at: `https://theasmat.github.io/macsetup`
+**Download & Inspect:**
 
-### Option 2: Netlify
-1. Connect your GitHub repository to Netlify
-2. Deploy settings:
-   - Build command: (leave empty)
-   - Publish directory: `/` (root)
-3. Your site will be available at: `https://app-name.netlify.app`
-
-### Option 3: Vercel
-1. Import your GitHub repository to Vercel
-2. Deploy settings:
-   - Framework: Other
-   - Root directory: `/`
-3. Your site will be available at: `https://app-name.vercel.app`
-
-### Option 4: Custom Server
-Upload all files to your web server's public directory.
-
-## 🔧 Configuration
-
-### Update URLs
-Before deploying, update the following in `index.html`:
-
-1. **Domain URLs**: Replace `https://macsetup.asmat.dev` with your actual domain (already updated)
-2. **GitHub Repository**: Replace `theasmat/macsetup` with your repo (already updated)
-3. **Social Media**: Update Open Graph and Twitter card images
-4. **Analytics**: Add your Google Analytics tracking code
-
-### Required Updates in index.html:
-```html
-<!-- Line 11: Meta description with your domain -->
-<meta property="og:url" content="https://macsetup.asmat.dev">
-
-<!-- Line 28: Install command -->
-3. **Users can install with**:
-   ```bash
-   # Primary domain
-   curl -fsSL https://macsetup.asmat.dev/mac-dev-setup.sh | bash
-
-   # Backup domain (if primary is unavailable)
-   curl -fsSL https://macsetup.netlify.app/mac-dev-setup.sh | bash
-   ```
-
-<!-- Line 121: Download link -->
-<a href="./mac-dev-setup.sh" class="btn btn-primary" download>📥 Download Script</a>
-
-<!-- Lines 166, 172, 178: GitHub repository links -->
-<a href="https://github.com/theasmat/macsetup/issues">Report Issue</a>
+```bash
+curl -O https://macsetup.asmat.dev/mac-dev-setup.sh
+chmod +x mac-dev-setup.sh
+./mac-dev-setup.sh
 ```
+
+**Git Clone:**
+
+```bash
+git clone https://github.com/theasmat/macsetup.git
+cd macsetup
+./mac-dev-setup.sh
+```
+
+## 💻 What Gets Installed
+
+### 🌐 Web Browsers
+
+* Google Chrome (Developer-focused browser)
+* Firefox (Privacy-focused alternative)
+* Brave (Crypto & privacy browser)
+* Tor Browser (Anonymous browsing)
+
+### 💻 Development IDEs & Editors
+
+* Visual Studio Code (Primary code editor with extensions)
+* iTerm2 (Feature-rich terminal replacement)
+* Warp (Modern, AI-powered terminal)
+
+### 🛠️ Development Tools
+
+* Docker (Containerization platform)
+* Postman (API development & testing)
+* ngrok (Secure tunneling to localhost)
+* Sequel Ace (MySQL/MariaDB client)
+* Git (Version control system)
+* Homebrew (Package manager for macOS)
+
+### 🗄️ Databases
+
+* Redis (In-memory data structure store)
+* PostgreSQL (Advanced open-source database)
+
+### 🌳 Programming Environments
+
+* **Node.js**: Latest LTS version via NVM
+* **Python**: System Python with pip
+* **Java**: Oracle JDK 25 (Latest version)
+
+### 🔧 Productivity & Utilities
+
+* Raycast (Spotlight replacement)
+* Rectangle (Window management)
+* Bitwarden (Password manager)
+* AppCleaner (Application uninstaller)
+* CleanMyMac X (System optimization)
+
+### 💬 Communication
+
+* Slack (Team communication)
+* Discord (Gaming & community chat)
+* Zoom (Video conferencing)
+
+### 🎥 Media & Creative
+
+* VLC Media Player (Universal media player)
+* OBS Studio (Streaming & recording)
+* Figma (Design & prototyping)
+
+## ⚙️ Configuration Included
+
+The script automatically configures:
+
+* **Git**: Global user settings and SSH key generation
+* **VS Code**: Essential extensions for web development
+* **Terminal**: Enhanced shell with better defaults
+* **Development Environment**: Path configurations and aliases
+
+## 🛡️ Safety & Security
+
+* **Non-destructive**: Only installs new software, doesn't modify existing
+* **Permission-based**: Asks for confirmation before each category
+* **Error handling**: Graceful failure recovery with detailed logging
+* **Verification**: Confirms successful installation of each tool
+
+## 📊 Platform Support
+
+* **macOS**: 11.0 (Big Sur) and later
+* **Architecture**: Intel (x64) and Apple Silicon (M1/M2/M3)
+* **Permissions**: Requires admin access for Homebrew installation
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+### Quick Links
+
+* 🐛 [Report Issues](https://github.com/theasmat/macsetup/issues)
+* 💡 [Feature Requests](https://github.com/theasmat/macsetup/issues/new?template=feature_request.md)
+* 🔧 [Pull Requests](https://github.com/theasmat/macsetup/pulls)
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+---
+
+**🌟 Star this repo if it helped you set up your Mac development environment!**
 
 ## 📊 SEO Features
 
 ### Technical SEO
-- ✅ Semantic HTML5 structure
-- ✅ Meta description and keywords
-- ✅ Open Graph tags for social sharing
-- ✅ Twitter Card tags
-- ✅ Structured data (JSON-LD)
-- ✅ Mobile-responsive design
-- ✅ Fast loading times
-- ✅ Accessibility features
+
+* ✅ Semantic HTML5 structure
+* ✅ Meta description and keywords
+* ✅ Open Graph tags for social sharing
+* ✅ Twitter Card tags
+* ✅ Structured data (JSON-LD)
+* ✅ Mobile-responsive design
+* ✅ Fast loading times
+* ✅ Accessibility features
 
 ### Content SEO
-- ✅ Descriptive headings (H1, H2, H3)
-- ✅ Alt text for images
-- ✅ Internal linking
-- ✅ Keyword optimization
-- ✅ User-friendly URLs
+
+* ✅ Descriptive headings (H1, H2, H3)
+* ✅ Alt text for images
+* ✅ Internal linking
+* ✅ Keyword optimization
+* ✅ User-friendly URLs
 
 ## 🎨 Customization
 
 ### Colors
+
 Update CSS custom properties in `assets/styles.css`:
+
 ```css
 :root {
     --primary-color: #007bff;    /* Your brand color */
@@ -113,7 +189,9 @@ Update CSS custom properties in `assets/styles.css`:
 ```
 
 ### Fonts
+
 The site uses Inter and JetBrains Mono. To change fonts, update:
+
 ```css
 :root {
     --font-primary: 'YourFont', sans-serif;
@@ -122,7 +200,9 @@ The site uses Inter and JetBrains Mono. To change fonts, update:
 ```
 
 ### Logo
+
 Replace the emoji logo with your own:
+
 ```html
 <div class="logo">
     <h1>🚀 Your Brand Name</h1>
@@ -133,7 +213,9 @@ Replace the emoji logo with your own:
 ## 📈 Analytics
 
 ### Google Analytics
+
 Add your tracking code before the closing `</head>` tag:
+
 ```html
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
@@ -146,22 +228,28 @@ Add your tracking code before the closing `</head>` tag:
 ```
 
 ### Event Tracking
+
 The JavaScript file includes event tracking for:
-- Script downloads
-- Command copying
-- Button clicks
+
+* Script downloads
+* Command copying
+* Button clicks
 
 ## 🔒 Security
 
 ### HTTPS
+
 Always serve over HTTPS for:
-- Security
-- Modern browser features (Clipboard API)
-- SEO benefits
-- User trust
+
+* Security
+* Modern browser features (Clipboard API)
+* SEO benefits
+* User trust
 
 ### Content Security Policy
+
 Add CSP headers for enhanced security:
+
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; script-src 'self' 'unsafe-inline' www.googletagmanager.com;">
 ```
@@ -169,15 +257,18 @@ Add CSP headers for enhanced security:
 ## 📱 Mobile Optimization
 
 The site is fully responsive and includes:
-- Mobile-first CSS
-- Touch-friendly buttons
-- Readable font sizes
-- Fast loading on mobile
-- Progressive Web App ready
+
+* Mobile-first CSS
+* Touch-friendly buttons
+* Readable font sizes
+* Fast loading on mobile
+* Progressive Web App ready
 
 ## 🚀 Performance
 
 ### Optimization Tips
+
+
 1. **Images**: Add WebP format images for better compression
 2. **Minification**: Minify CSS and JavaScript for production
 3. **CDN**: Use a CDN for static assets
@@ -185,22 +276,26 @@ The site is fully responsive and includes:
 5. **Compression**: Enable gzip/brotli compression
 
 ### Performance Checklist
-- ✅ Optimized images
-- ✅ Minified CSS/JS
-- ✅ Fast hosting
-- ✅ Mobile optimization
-- ✅ Lazy loading ready
+
+* ✅ Optimized images
+* ✅ Minified CSS/JS
+* ✅ Fast hosting
+* ✅ Mobile optimization
+* ✅ Lazy loading ready
 
 ## 🎯 Marketing
 
 ### Share Features
-- Direct installation command
-- One-click copy functionality
-- Social media optimized
-- GitHub integration
-- Professional design
+
+* Direct installation command
+* One-click copy functionality
+* Social media optimized
+* GitHub integration
+* Professional design
 
 ### Content Marketing Ideas
+
+
 1. Blog post about the script
 2. Developer community sharing
 3. GitHub repository promotion
@@ -208,6 +303,7 @@ The site is fully responsive and includes:
 5. Developer newsletter features
 
 ## 🤝 Contributing
+
 
 1. Fork the repository
 2. Create a feature branch
@@ -224,6 +320,8 @@ This project is open source. Include your preferred license.
 We welcome contributions from developers of all skill levels! 🎉
 
 ### 🚀 Quick Start
+
+
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
 3. Make your changes
@@ -231,32 +329,36 @@ We welcome contributions from developers of all skill levels! 🎉
 5. Submit a pull request
 
 ### 💡 Ways to Contribute
-- **🛠️ Add new applications**: Expand our tool collection
-- **🐛 Fix bugs**: Help improve reliability
-- **📝 Improve documentation**: Make it clearer for everyone
-- **🎨 Enhance the website**: Better user experience
-- **💬 Share feedback**: Tell us what you think
+
+* **🛠️ Add new applications**: Expand our tool collection
+* **🐛 Fix bugs**: Help improve reliability
+* **📝 Improve documentation**: Make it clearer for everyone
+* **🎨 Enhance the website**: Better user experience
+* **💬 Share feedback**: Tell us what you think
 
 ### 📋 Contribution Guidelines
-- Read our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
-- Use our issue templates for bug reports and feature requests
-- Follow the existing code style and patterns
-- Test your changes on macOS before submitting
+
+* Read our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
+* Use our issue templates for bug reports and feature requests
+* Follow the existing code style and patterns
+* Test your changes on macOS before submitting
 
 ### 🏆 Recognition
+
 Contributors are recognized in our Hall of Fame and project documentation!
+
 
 ---
 
 ## 🆘 Support
 
-- 🐛 [Report Issues](https://github.com/theasmat/macsetup/issues)
-- 💬 [Discussions](https://github.com/theasmat/macsetup/discussions)
-- 📧 Contact: your-email@domain.com
+* 🐛 [Report Issues](https://github.com/theasmat/macsetup/issues)
+
 
 ---
 
 ## 🏁 Getting Started
+
 
 1. Clone this repository
 2. Update all URLs and references

@@ -20,9 +20,24 @@ Thank you to all the amazing people who have contributed to making Mac Developer
 
 ## 🤝 Contributors
 
-<!-- CONTRIBUTORS-START -->
-*Contributors will be automatically added here when they make their first contribution.*
-<!-- CONTRIBUTORS-END -->
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+*🤖 This section is automatically updated by GitHub Actions when contributors make their first contribution.*
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## 📊 Live Stats
+
+| Metric | Badge |
+|--------|-------|
+| Total Contributors | ![Contributors](https://img.shields.io/github/contributors/theasmat/macsetup?style=flat-square) |
+| Total Commits | ![Commits](https://img.shields.io/github/commit-activity/t/theasmat/macsetup?style=flat-square) |
+| Closed Issues | ![Issues](https://img.shields.io/github/issues-closed/theasmat/macsetup?style=flat-square) |
+| Merged PRs | ![PRs](https://img.shields.io/github/issues-pr-closed/theasmat/macsetup?style=flat-square) |
 
 ## 🎯 Contribution Types
 

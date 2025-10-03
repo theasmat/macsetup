@@ -1,0 +1,134 @@
+name: Contributors Recognition
+
+on:
+  issues:
+    types: [closed]
+  pull_request:
+    types: [closed]
+  schedule:
+    # Run weekly on Sundays at 00:00 UTC
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+jobs:
+  update-contributors:
+    if: github.event.pull_request.merged == true || github.event.issue.state == 'closed' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install all-contributors CLI
+        run: npm install -g all-contributors-cli
+
+      - name: Get all contributors
+        id: contributors
+        run: |
+          # Get all contributors from GitHub API
+          contributors=$(curl -s "https://api.github.com/repos/${{ github.repository }}/contributors" | jq -r '.[].login' | head -20)
+          echo "contributors<<EOF" >> $GITHUB_OUTPUT
+          echo "$contributors" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Update Contributors List
+        run: |
+          # Initialize all-contributors if .all-contributorsrc doesn't exist
+          if [ ! -f .all-contributorsrc ]; then
+            echo "Initializing all-contributors..."
+            npx all-contributors init
+          fi
+
+          # Add each contributor
+          while IFS= read -r contributor; do
+            if [ ! -z "$contributor" ]; then
+              echo "Adding contributor: $contributor"
+              npx all-contributors add "$contributor" code,doc || true
+            fi
+          done <<< "${{ steps.contributors.outputs.contributors }}"
+
+      - name: Generate Contributors README
+        run: npx all-contributors generate
+
+      - name: Update Hall of Fame
+        run: |
+          # Create a more detailed contributors file
+          cat > CONTRIBUTORS.md << 'EOF'
+          # 🏆 Contributors Hall of Fame
+
+          Thank you to all the amazing people who have contributed to making Mac Developer Setup better! 🎉
+
+          ## 🌟 All Contributors
+
+          <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+          <!-- prettier-ignore-start -->
+          <!-- markdownlint-disable -->
+          EOF
+
+          # Extract the contributors table from README
+          if grep -q "ALL-CONTRIBUTORS-LIST:START" README.md; then
+            sed -n '/ALL-CONTRIBUTORS-LIST:START/,/ALL-CONTRIBUTORS-LIST:END/p' README.md >> CONTRIBUTORS.md
+          fi
+
+          cat >> CONTRIBUTORS.md << 'EOF'
+          <!-- markdownlint-restore -->
+          <!-- prettier-ignore-end -->
+
+          <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+          ## 📊 Contribution Stats
+
+          | Metric | Count |
+          |--------|-------|
+          | Total Contributors | ![Contributors](https://img.shields.io/github/contributors/theasmat/macsetup) |
+          | Total Commits | ![Commits](https://img.shields.io/github/commit-activity/t/theasmat/macsetup) |
+          | Total Issues Closed | ![Issues](https://img.shields.io/github/issues-closed/theasmat/macsetup) |
+          | Total PRs Merged | ![PRs](https://img.shields.io/github/issues-pr-closed/theasmat/macsetup) |
+
+          ## 🎯 Contribution Types
+
+          We recognize various types of contributions:
+
+          - 💻 **Code**: Script improvements, bug fixes, new features
+          - 📖 **Documentation**: README updates, guides, tutorials
+          - 🐛 **Bug Reports**: Finding and reporting issues
+          - 💡 **Ideas**: Feature suggestions and improvements
+          - 🎨 **Design**: UI/UX improvements for the web interface
+          - 📋 **Project Management**: Issue triage, release planning
+          - 🧪 **Testing**: Manual testing, test automation
+          - 🔍 **Review**: Code reviews, documentation reviews
+
+          ## 🏅 Recognition Levels
+
+          - **🌟 First-time Contributor**: Made their first contribution
+          - **🔥 Regular Contributor**: 3+ merged PRs or significant contributions
+          - **⚡ Power Contributor**: 10+ merged PRs or major feature additions
+          - **🎖️ Core Maintainer**: Ongoing maintenance and significant impact
+
+          ## 🎉 Recent Contributors
+
+          Special thanks to our most recent contributors who helped improve the project!
+
+          ---
+
+          ### 🤝 Want to Join the Hall of Fame?
+
+          Check out our [Contributing Guide](CONTRIBUTING.md) to get started!
+
+          *This page is automatically updated when contributions are made. If you've contributed and don't see your name, please open an issue!*
+          EOF
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🎉 Update contributors list [skip ci]"
+          file_pattern: "README.md CONTRIBUTORS.md .all-contributorsrc"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
